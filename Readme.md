@@ -15,7 +15,7 @@ With it you can search by some feature or attribute (defined in category edition
 Add it in your main thelia composer.json file
 
 ```
-composer thelia/criteria-search-module:~1.0
+composer thelia/criteria-search-module ~1.0.0
 ```
 
 ## Usage
