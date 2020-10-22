@@ -13,7 +13,7 @@ return array(
     'Name descending' => 'Nom décroissant',
     'New' => 'Nouveau',
     'Next' => 'Suivant',
-    'Others filters' => 'Autres filtres',
+    'Others filters' => 'Filtres',
     'Pagination' => 'Pagination',
     'Previous' => 'Précédent',
     'Price ascending' => 'Prix croissant',

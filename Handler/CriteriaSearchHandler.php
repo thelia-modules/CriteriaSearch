@@ -77,7 +77,7 @@ class CriteriaSearchHandler
         $params['in_stock'] = $request->get('in_stock');
         $params['new'] = $request->get('new');
         $params['promo'] = $request->get('promo');
-        $params['limit'] = $request->get('limit') ? $request->get('limit') : 20;
+        $params['limit'] = $request->get('limit') ? $request->get('limit') : 21;
         $params['page'] = $request->get('page') ? $request->get('page') : 1;
         $params['order'] = $request->get('order') ? $request->get('order') : 'alpha';
     }
