@@ -25,7 +25,7 @@ class CriteriaSearchFeatureLoop extends Feature implements PropelSearchLoopInter
             Argument::createIntListTypeArgument("category"),
         ));
     }
-        
+
     public function buildModelCriteria()
     {
         /** @var FeatureQuery $query */

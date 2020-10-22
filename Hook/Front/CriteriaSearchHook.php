@@ -36,6 +36,11 @@ class CriteriaSearchHook extends BaseHook
 
         $params['category_id'] = $event->getArgument('category_id');
 
+        if ($params['category_id'] == "")
+        {
+            $params['category_id'] = $request->get('category_id');
+        }
+
         $categorieTaxeRule = CriteriaSearchCategoryTaxRuleQuery::create()
             ->findOneByCategoryId($params['category_id']);
 
@@ -64,6 +69,12 @@ class CriteriaSearchHook extends BaseHook
                 ->orderBy('price', Criteria::DESC)
             ->limit(1)
             ->findOne();
+
+
+            if($categoryProductMaxPrice == "")
+            {
+                $categoryProductMaxPrice = "1000";
+            }
 
             $params['max_price_filter'] = ceil($categoryProductMaxPrice/10)*10;
 

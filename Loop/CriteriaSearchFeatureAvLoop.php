@@ -12,6 +12,7 @@ use Thelia\Core\Template\Loop\FeatureAvailability;
 use Thelia\Model\Map\FeatureAvTableMap;
 use Thelia\Model\Map\FeatureProductTableMap;
 use Thelia\Model\Map\ProductCategoryTableMap;
+use Thelia\Model\Map\ProductTableMap;
 
 class CriteriaSearchFeatureAvLoop extends FeatureAvailability implements PropelSearchLoopInterface
 {
@@ -54,7 +55,23 @@ class CriteriaSearchFeatureAvLoop extends FeatureAvailability implements PropelS
                     null
                 );
 
-                $featureAvProductCategoryJoin->setJoinType(Criteria::JOIN);
+                $productVisible = new Join();
+                $productVisible->addExplicitCondition(
+                  FeatureProductTableMap::TABLE_NAME,
+                  'PRODUCT_ID',
+                  null,
+                  ProductTableMap::TABLE_NAME,
+                  'ID',
+                  null
+                );
+
+                $productVisible->setJoinType(Criteria::JOIN);
+
+                $query->addJoinObject($productVisible, 'product_visible')
+                  ->addJoinCondition(
+                    'product_visible',
+                    ProductTableMap::VISIBLE . ' = 1'
+                  );
 
                 $query->addJoinObject($featureAvProductCategoryJoin, 'feature_av_product_category_join')
                     ->addJoinCondition(
