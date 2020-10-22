@@ -51,7 +51,7 @@ class CriteriaSearchProductLoop extends Product implements PropelSearchLoopInter
         $maxPriceTTC = $this->getMaxPriceTtc();
 
         if ($minPriceTTC || $maxPriceTTC) {
-            $this->managePriceFilter($search, $minPriceTTC, $maxPriceTTC);
+            $this->managePriceFilter($query, $minPriceTTC, $maxPriceTTC);
         }
 
         return $query;
@@ -117,6 +117,11 @@ class CriteriaSearchProductLoop extends Product implements PropelSearchLoopInter
     protected function managePriceFilter(&$search, $minPriceTTC, $maxPriceTTC)
     {
         $categoryId = $this->getCategoryId();
+
+        // Can't filter on price without category
+        if (null === $categoryId) {
+            return;
+        }
 
         $taxeRuleQuery = TaxRuleQuery::create();
 
