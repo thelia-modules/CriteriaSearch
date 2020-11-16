@@ -37,7 +37,7 @@ class CriteriaSearchFeatureAvLoop extends FeatureAvailability implements PropelS
                 null,
                 FeatureProductTableMap::TABLE_NAME,
                 'FEATURE_AV_ID',
-                null
+                'fp_1'
             );
 
             $featureAvProductJoin->setJoinType(Criteria::JOIN);
