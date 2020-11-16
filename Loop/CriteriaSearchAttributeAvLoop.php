@@ -37,7 +37,7 @@ class CriteriaSearchAttributeAvLoop extends AttributeAvailability implements Pro
                 null,
                 AttributeCombinationTableMap::TABLE_NAME,
                 'ATTRIBUTE_AV_ID',
-                null
+                'ac_1'
             );
 
             $attributeAvCombinationJoin->setJoinType(Criteria::JOIN);
