@@ -16,13 +16,14 @@ use Propel\Runtime\Connection\ConnectionInterface;
 use Thelia\Core\Template\TemplateDefinition;
 use Thelia\Install\Database;
 use Thelia\Module\BaseModule;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ServicesConfigurator;
 
 class CriteriaSearch extends BaseModule
 {
     /** @var string */
     const DOMAIN_NAME = 'criteriasearch';
 
-    public function postActivation(ConnectionInterface $con = null)
+    public function postActivation(ConnectionInterface $con = null): void
     {
         if (!self::getConfigValue('is_initialized', false)) {
             $database = new Database($con);
@@ -74,5 +75,13 @@ class CriteriaSearch extends BaseModule
                 "active" => true
             ]
         ];
+    }
+
+    public static function configureServices(ServicesConfigurator $servicesConfigurator): void
+    {
+        $servicesConfigurator->load(self::getModuleCode().'\\', __DIR__)
+            ->exclude([THELIA_MODULE_DIR . ucfirst(self::getModuleCode()). "/I18n/*"])
+            ->autowire(true)
+            ->autoconfigure(true);
     }
 }
