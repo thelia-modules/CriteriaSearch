@@ -25,13 +25,6 @@
         -->
     </commands>
 
-    <services>
-        <service id="criteriasearch.handler" class="CriteriaSearch\Handler\CriteriaSearchHandler" scope="request">
-            <argument type="service" id="service_container"/>
-            <argument type="service" id="request"/>
-        </service>
-    </services>
-
     <hooks>
         <hook id="criteria_search.edit.category" class="CriteriaSearch\Hook\Admin\CategoryEditHook" scope="request">
             <tag name="hook.event_listener" event="category.tab-content" type="back" method="onCategoryTabContent" />

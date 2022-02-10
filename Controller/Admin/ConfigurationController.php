@@ -11,9 +11,17 @@ use Thelia\Core\HttpFoundation\JsonResponse;
 use Thelia\Core\HttpFoundation\Response;
 use Thelia\Core\Security\AccessManager;
 use Thelia\Core\Security\Resource\AdminResources;
+use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * class ConfigurationController
+ * @Route("/admin/module", name="configuration_criteria") 
+ */
 class ConfigurationController extends BaseAdminController
 {
+    /**
+     * @Route("/CriteriaSearch", name="view_criteria") 
+     */
     public function viewAction()
     {
         if (null !== $response = $this->checkAuth(array(AdminResources::MODULE), array('CriteriaSearch'), AccessManager::VIEW)) {
@@ -32,6 +40,9 @@ class ConfigurationController extends BaseAdminController
         );
     }
 
+    /**
+     * @Route("/config/CriteriaSearch/toggle/{type}", name="toggle_criteria") 
+     */
     public function toggleCriteria($type)
     {
         if (null !== $response = $this->checkAuth(array(AdminResources::MODULE), array('CriteriaSearch'), AccessManager::UPDATE)) {
@@ -84,6 +95,9 @@ class ConfigurationController extends BaseAdminController
         }
     }
 
+    /**
+     * @Route("/config/CriteriaSearch/category/tax", name="category_tax") 
+     */
     public function setCategoryTaxRule()
     {
         if (null !== $response = $this->checkAuth(array(AdminResources::MODULE), array('CriteriaSearch'), AccessManager::UPDATE)) {
