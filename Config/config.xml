@@ -41,7 +41,7 @@
             <tag name="hook.event_listener" event="criteria-search.search-css" type="front" method="onCriteriaSearchSearchCss" />
             <tag name="hook.event_listener" event="criteria-search.search-page" type="front" method="onCriteriaSearchSearchPage" />
             <tag name="hook.event_listener" event="criteria-search.search-js" type="front" method="onCriteriaSearchSearchJs" />
-            <argument type="service" id="criteriasearch.handler"/>
+            <argument type="handler" id="criteriasearch.handler"/>
         </hook>
     </hooks>
 
