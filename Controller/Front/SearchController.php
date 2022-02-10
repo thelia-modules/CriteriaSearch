@@ -5,10 +5,16 @@ namespace CriteriaSearch\Controller\Front;
 
 use Thelia\Controller\Front\BaseFrontController;
 use Thelia\Core\HttpFoundation\JsonResponse;
+use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * class SearchController
+ * @Route("/criteria", name="search_criteria") 
+ */
 class SearchController extends BaseFrontController
 {
     /**
+     * @Route("/render/search", name="search_render") 
      * Return render of product search results
      * @return \Thelia\Core\HttpFoundation\Response
      */
@@ -25,6 +31,7 @@ class SearchController extends BaseFrontController
 
 
     /**
+     * @Route("/url/search", name="search_url")
      * Return new url with good params for update with history
      * @return \Symfony\Component\HttpFoundation\Response|static
      */
@@ -48,6 +55,7 @@ class SearchController extends BaseFrontController
 
 
     /**
+     * @Route("/page/info/search", name="search_page_info")
      * Return page search info like what checkbox is checked,
      * @return \Symfony\Component\HttpFoundation\Response|static
      */

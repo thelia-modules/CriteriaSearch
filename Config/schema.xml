@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<database defaultIdMethod="native" name="thelia" namespace="CriteriaSearch\Model">
+<database defaultIdMethod="native" name="TheliaMain" namespace="CriteriaSearch\Model">
     <table name="criteria_search_category_feature">
         <column autoIncrement="true" name="id" primaryKey="true" type="INTEGER" required="true" />
         <column name="category_id" type="INTEGER" />
