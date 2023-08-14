@@ -64,7 +64,7 @@
                 <select class='form-control' name="tax_rule_id">
                     <option>{intl l="No tax selected"}</option>
                     {loop type="tax-rule" name="category_tax_rule"}
-                        <option value="{$ID}"{if $ID === $taxe_rule_id}selected{/if}>{$TITLE}</option>
+                        <option value="{$ID}"{if $ID === $taxe_rule_id|default:null}selected{/if}>{$TITLE}</option>
                     {/loop}
                 </select>
                 <input id="category_tax_rule_btn" type="submit" class="btn btn-success">
