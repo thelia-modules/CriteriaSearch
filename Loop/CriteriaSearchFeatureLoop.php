@@ -107,7 +107,7 @@ class CriteriaSearchFeatureLoop extends Feature implements PropelSearchLoopInter
                 ->set("DESCRIPTION", $feature->getVirtualColumn('i18n_DESCRIPTION'))
                 ->set("POSTSCRIPTUM", $feature->getVirtualColumn('i18n_POSTSCRIPTUM'))
                 ->set("POSITION", $this->useFeaturePosition ? $feature->getPosition() : $feature->getVirtualColumn('position'))
-                ->set('SEARCHABLE', $searches[$feature->getId()]);
+                ->set('SEARCHABLE', array_key_exists($feature->getId(), $searches) ? $searches[$feature->getId()] : null);
 
             $loopResult->addRow($loopResultRow);
         }

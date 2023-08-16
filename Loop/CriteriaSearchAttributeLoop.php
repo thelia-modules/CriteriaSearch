@@ -107,7 +107,7 @@ class CriteriaSearchAttributeLoop extends Attribute implements PropelSearchLoopI
                 ->set("DESCRIPTION", $attribute->getVirtualColumn('i18n_DESCRIPTION'))
                 ->set("POSTSCRIPTUM", $attribute->getVirtualColumn('i18n_POSTSCRIPTUM'))
                 ->set("POSITION", $this->useAttributePosistion ? $attribute->getPosition() : $attribute->getVirtualColumn('position'))
-                ->set('SEARCHABLE', $searches[$attribute->getId()]);
+                ->set('SEARCHABLE', array_key_exists($attribute->getId(), $searches) ? $searches[$attribute->getId()] : null);
 
             $loopResult->addRow($loopResultRow);
         }
